@@ -1,12 +1,25 @@
-FROM node:12.10-alpine
+FROM tarampampam/node:13-alpine
 
-USER nobody
+ENV PYTHONUNBUFFERED=1
+RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+RUN python3 -m ensurepip
+RUN pip3 install --no-cache --upgrade pip setuptools
+RUN apk add make gcc g++
 
-# specify the working directory
-WORKDIR app
+RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 
-# expose server and debug port
-EXPOSE 8080 5858
+WORKDIR /home/node/app
 
-# run application
-CMD ["node", "dist/src/index.js"]
+COPY package*.json ./
+
+USER node
+
+RUN npm install
+
+COPY --chown=node:node . .
+
+RUN npm run build
+
+EXPOSE 3000
+
+CMD [ "npm", "run", "start" ]
