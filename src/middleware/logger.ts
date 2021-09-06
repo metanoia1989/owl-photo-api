@@ -21,9 +21,9 @@ const loggerMiddleware = (winstonInstance: any): any => {
 
         try {
             await next()
-        } catch (error) {
-            context.status = error.status || 500
-            context.body = error.message
+        } catch (error: any) {
+          context.status = error.status || 500
+          context.body = error.message
         }
 
         const ms = new Date().getTime() - start
