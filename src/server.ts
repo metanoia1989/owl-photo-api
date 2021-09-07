@@ -11,8 +11,8 @@ import { config } from './config'
 import { rateLimiter } from './middleware/rate-limiter'
 import { tokenBlacklistMiddleware } from './middleware/token-blacklist'
 import { setupConnection } from './providers/connections'
-import { unprotectedRouter } from './routes/unprotected'
-import { protectedRouter } from './routes/protected'
+// import { unprotectedRouter } from './routes/unprotected'
+// import { protectedRouter } from './routes/protected'
 import { staticRouter } from './routes/static'
 import { logger } from './libraries/logger'
 
@@ -35,7 +35,7 @@ export const server = function (): Server {
     app.use(rateLimiter)
 
     // these routes are NOT protected by the JWT middleware
-    app.use(unprotectedRouter.routes()).use(unprotectedRouter.allowedMethods())
+    // app.use(unprotectedRouter.routes()).use(unprotectedRouter.allowedMethods())
     app.use(staticRouter.routes()).use(staticRouter.allowedMethods())
 
     // JWT middleware -> below this line routes are only reached if JWT token is valid
@@ -45,7 +45,7 @@ export const server = function (): Server {
     if(config.redis.blackListEnabled) app.use(tokenBlacklistMiddleware)
 
     // These routes are protected by the JWT middleware
-    app.use(protectedRouter.routes()).use(protectedRouter.allowedMethods())
+    // app.use(protectedRouter.routes()).use(protectedRouter.allowedMethods())
 
     console.log(`Server running on port ${config.port}`)
 
