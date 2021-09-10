@@ -56,4 +56,4 @@ export const server = function (): Server {
 if(config.nodeEnv !== 'test')
     setupConnection(config.databaseUrl)
         .then(async () => server())
-        .catch((error: string) => logger.error('TypeORM connection error:', { error }))
+        .catch((error: string) => logger.error('Mongoose connection error:', { error }))

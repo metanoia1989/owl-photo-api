@@ -12,6 +12,8 @@
 志愿者的平台。我希望开发一个志愿者运营、互助、交流的平台，畅所欲言，而不是被公益机构牢牢掌控着
 所有决断权力。
 
+技术栈：Koa + MongoDB + GraphQL + Vue + TypeScript     
+应用模板：https://github.com/emmanuelnk/restful-typescript-koa    
 
 LICENSE
 =======
