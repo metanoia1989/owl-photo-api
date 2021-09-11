@@ -6,7 +6,7 @@ dotenv.config({ path: '.env' })
 // mongo
 const isTestMode = process.env.NODE_ENV === 'test'
 const isDevelopmentMode = process.env.NODE_ENV === 'development'
-const databaseUrl = process.env.DATABASE_URL || 'mongodb://user:pass@localhost:27017/apidb'
+const databaseUrl = process.env.DATABASE_URL || 'mongodb://user:pass@localhost:27017/wavelib_photo'
 
 // redis defaults
 const redis = {
@@ -33,7 +33,7 @@ const config: Config = {
         accessTokenLife: process.env.JWT_ACCESS_TOKEN_LIFE || '15m',
         refreshTokenSecret: process.env.JWT_REFRESH_TOKEN_SECRET || 'your-refresh-whatever',
         refreshTokenLife: process.env.JWT_REFRESH_TOKEN_LIFE || '24h'
-    }, 
+    },
     redis,
     databaseUrl,
     dbEntitiesPath: [...(isDevelopmentMode || isTestMode ? ['src/entities/**/*.ts'] : ['dist/entities/**/*.js'])],

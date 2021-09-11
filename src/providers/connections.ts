@@ -1,34 +1,20 @@
-import { Connection, createConnection } from 'typeorm'
 import { config } from '../config'
 import { createBlackList, BlackList, STORE_TYPE } from 'jwt-blacklist'
+import { Connection, createConnection } from 'mongoose'
 
 /**
- * Connects to a TypeORM connected database
- * 
+ * Connects to a Mongoose connected database
+ *
  * @param  {string} url the database connection url
- * @param  {boolean} drop if true, drops the schema eachtime a connection to the db is made
  * @returns {Promise<Connection>} the database connection object
  */
-export async function setupConnection(url: string, drop: boolean = false): Promise<Connection> {
-    return createConnection({
-        type: 'mongodb',
-        url,    
-        useNewUrlParser: true,      
-        ssl: config.dbsslconn,
-        authSource: 'admin',
-        keepAlive: 600000,
-        w: 'majority',
-        entities: config.dbEntitiesPath,
-        synchronize: true,
-        useUnifiedTopology: true,
-        dropSchema: drop,
-        logging: false,
-    })
+export async function setupConnection(url: string): Promise<Connection> {
+  return createConnection(url)
 }
 
 /**
  * Connects to the redis based blacklist
- * 
+ *
  * @returns {Promise<BlackList>} Promise
  */
 export async function blacklistConnection(): Promise<BlackList> {
