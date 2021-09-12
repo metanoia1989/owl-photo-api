@@ -11,11 +11,10 @@ const schema = new Schema<Post>({
   caption: { type: String, required: true },
   cover: { type: String, required: true },
   location: String,
+  tags: [String],
+  collectionsCount: { type: Number, default: 0 },
   likes: [{ type: ObjectId, ref: 'User'} ],
-  collections: [{ type: ObjectId, ref: 'User'} ],
   photos: [{ type: ObjectId, ref: 'Photo'} ],
-  createdAt: Date,
-  updatedAt: Date,
-})
+}, { timestamps: true })
 
 export default model<Post>('Post', schema)

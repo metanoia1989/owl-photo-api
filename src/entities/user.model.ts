@@ -1,7 +1,6 @@
 /**
  * 用户信息表
  */
-import { ObjectId } from 'bson'
 import { Schema, model } from 'mongoose'
 import User from '../interfaces/user.interfaces'
 
@@ -12,9 +11,9 @@ const schema = new Schema<User>({
   avatar: { type: String, required: true },
   password: String,
   description: String,
-  collections: [{ type: ObjectId, ref: 'Post'} ],
-  createdAt: Date,
-  updatedAt: Date,
-})
+  followingsCount: { type: Number, default: 0 },
+  followersCount: { type: Number, default: 0 },
+  collectionsCount: { type: Number, default: 0 },
+}, { timestamps: true })
 
 export default model<User>('User', schema)

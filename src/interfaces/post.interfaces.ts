@@ -9,9 +9,10 @@ export default interface Post {
   caption: string;
   cover: string;
   location?: string;
-  likes?: PopulatedDoc<User & Document>[];
-  collections?: PopulatedDoc<User & Document>[];
+  tags?: string[],
   photos?: PopulatedDoc<Photo & Document>[];
+  likes?: PopulatedDoc<User & Document>[];
+  collectionsCount: number;
   createdAt: Date;
   updatedAt: Date;
 }

@@ -7,8 +7,10 @@ export default interface User {
   nickname: string;
   avatar: string;
   password?: string;
-  collections: PopulatedDoc<Post & Document>[];
   description?: string;
+  followingsCount: number;
+  followersCount: number;
+  collectionsCount: number;
   createdAt: Date;
   updatedAt: Date;
 }
