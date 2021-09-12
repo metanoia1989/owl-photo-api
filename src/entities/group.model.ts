@@ -1,17 +1,16 @@
+/**
+ * 分馆信息表
+ */
+
 import { Schema, model } from 'mongoose'
+import Group from '../interfaces/group.interfaces'
 
-interface User {
-  name: string;
-  avatar: string;
-  password: string;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-const schema = new Schema<User>({
-  name: { type: String, required: true },
-  password: { type: String, required: true },
-  avatar: String
+const schema = new Schema<Group>({
+  groupname: { type: String, required: true },
+  avatar: { type: String, required: true },
+  description: Number,
+  createdAt: Date,
+  updatedAt: Date,
 })
 
-export default model<User>('User', schema)
+export default model<Group>('Group', schema)
