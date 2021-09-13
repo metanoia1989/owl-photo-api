@@ -16,5 +16,6 @@ export default interface Photo {
   height: number;
   preview_size: number;
   origin_size: number;
+  color: string;
   createdAt: Date;
 }
