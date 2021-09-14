@@ -23,6 +23,10 @@ if(process.env.REDIS_URL) {
     redis.host = redisUrl.split(':').slice(2,3).join('')
 }
 
+// graphQL default
+const GRAPHQL_PATH = process.env.GRAPHQL_PATH || '/graphql'
+const SUBSCRIPTIONS_PATH = process.env.SUBSCRIPTIONS_PATH || '/subscriptions'
+
 const config: Config = {
     nodeEnv: process.env.NODE_ENV || 'development',
     port: +(process.env.PORT || 3000),
@@ -37,6 +41,8 @@ const config: Config = {
     redis,
     databaseUrl,
     dbEntitiesPath: [...(isDevelopmentMode || isTestMode ? ['src/entities/**/*.ts'] : ['dist/entities/**/*.js'])],
+    GRAPHQL_PATH,
+    SUBSCRIPTIONS_PATH,
 }
 
 export { config }

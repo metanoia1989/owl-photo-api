@@ -1,5 +1,5 @@
 interface JwtSecrets {
-    accessTokenSecret: string 
+    accessTokenSecret: string
     accessTokenLife: string
     refreshTokenSecret: string
     refreshTokenLife: string
@@ -22,4 +22,6 @@ export interface Config {
     redis: RedisConnDetails
     databaseUrl: string
     dbEntitiesPath: string[]
+    GRAPHQL_PATH: string
+    SUBSCRIPTIONS_PATH: string
 }
