@@ -15,6 +15,7 @@ import { setupConnection } from './providers/connections'
 // import { protectedRouter } from './routes/protected'
 import { staticRouter } from './routes/static'
 import { logger } from './libraries/logger'
+import { graphqlRouter } from './routes/graphql'
 
 export const server = function (): Server {
     const app = new Koa()
@@ -37,6 +38,7 @@ export const server = function (): Server {
     // these routes are NOT protected by the JWT middleware
     // app.use(unprotectedRouter.routes()).use(unprotectedRouter.allowedMethods())
     app.use(staticRouter.routes()).use(staticRouter.allowedMethods())
+    app.use(graphqlRouter.routes()).use(graphqlRouter.allowedMethods())
 
     // JWT middleware -> below this line routes are only reached if JWT token is valid
     app.use(jwt({ secret: config.jwt.accessTokenSecret }).unless({ path: [/^\/assets|swagger-/] }))
