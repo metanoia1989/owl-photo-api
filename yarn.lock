@@ -219,6 +219,40 @@
     enabled "2.0.x"
     kuler "^2.0.0"
 
+"@graphql-tools/load-files@^6.4.0":
+  version "6.4.0"
+  resolved "https://registry.nlark.com/@graphql-tools/load-files/download/@graphql-tools/load-files-6.4.0.tgz#59f982a22794e1db064248b5776e650e8c33d215"
+  integrity sha1-WfmCoieU4dsGQki1d25lDowz0hU=
+  dependencies:
+    globby "11.0.4"
+    tslib "~2.3.0"
+    unixify "1.0.0"
+
+"@graphql-tools/merge@^8.1.0", "@graphql-tools/merge@^8.1.2":
+  version "8.1.2"
+  resolved "https://registry.nlark.com/@graphql-tools/merge/download/@graphql-tools/merge-8.1.2.tgz#50f5763927c51de764d09c5bfd20261671976e24"
+  integrity sha1-UPV2OSfFHedk0Jxb/SAmFnGXbiQ=
+  dependencies:
+    "@graphql-tools/utils" "^8.2.2"
+    tslib "~2.3.0"
+
+"@graphql-tools/schema@^8.2.0":
+  version "8.2.0"
+  resolved "https://registry.nlark.com/@graphql-tools/schema/download/@graphql-tools/schema-8.2.0.tgz#ae75cbb2df6cee9ed6d89fce56be467ab23758dc"
+  integrity sha1-rnXLst9s7p7W2J/OVr5GerI3WNw=
+  dependencies:
+    "@graphql-tools/merge" "^8.1.0"
+    "@graphql-tools/utils" "^8.2.0"
+    tslib "~2.3.0"
+    value-or-promise "1.0.10"
+
+"@graphql-tools/utils@^8.2.0", "@graphql-tools/utils@^8.2.2":
+  version "8.2.2"
+  resolved "https://registry.nlark.com/@graphql-tools/utils/download/@graphql-tools/utils-8.2.2.tgz#d29420bf1003d2876cb30f373145be432c7f7c4b"
+  integrity sha1-0pQgvxAD0odssw83MUW+Qyx/fEs=
+  dependencies:
+    tslib "~2.3.0"
+
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
   resolved "https://registry.nlark.com/@istanbuljs/load-nyc-config/download/@istanbuljs/load-nyc-config-1.1.0.tgz#fd3db1d59ecf7cf121e80650bb86712f9b55eced"
@@ -2610,7 +2644,7 @@ globals@^12.1.0:
   dependencies:
     type-fest "^0.8.1"
 
-globby@^11.0.3:
+globby@11.0.4, globby@^11.0.3:
   version "11.0.4"
   resolved "https://registry.nlark.com/globby/download/globby-11.0.4.tgz#2cbaff77c2f2a62e71e9b2813a67b97a3a3001a5"
   integrity sha1-LLr/d8Lypi5x6bKBOme5ejowAaU=
@@ -4173,6 +4207,13 @@ normalize-package-data@^2.5.0:
     semver "2 || 3 || 4 || 5"
     validate-npm-package-license "^3.0.1"
 
+normalize-path@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.npm.taobao.org/normalize-path/download/normalize-path-2.1.1.tgz#1ab28b556e198363a8c1a6f7e6fa20137fe6aed9"
+  integrity sha1-GrKLVW4Zg2Oowab35vogE3/mrtk=
+  dependencies:
+    remove-trailing-separator "^1.0.1"
+
 normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"
   resolved "https://registry.npm.taobao.org/normalize-path/download/normalize-path-3.0.0.tgz#0dcd69ff23a1c9b11fd0978316644a0388216a65"
@@ -4822,6 +4863,11 @@ release-zalgo@^1.0.0:
   integrity sha1-CXALflB0Mpc5Mw5TXFqQ+2eFFzA=
   dependencies:
     es6-error "^4.0.1"
+
+remove-trailing-separator@^1.0.1:
+  version "1.1.0"
+  resolved "https://registry.npm.taobao.org/remove-trailing-separator/download/remove-trailing-separator-1.1.0.tgz#c24bce2a283adad5bc3f58e0d48249b92379d8ef"
+  integrity sha1-wkvOKig62tW8P1jg1IJJuSN52O8=
 
 repeat-element@^1.1.2:
   version "1.1.4"
@@ -5577,6 +5623,11 @@ tslib@^1.8.1, tslib@^1.9.0:
   resolved "https://registry.nlark.com/tslib/download/tslib-1.14.1.tgz?cache=0&sync_timestamp=1628722556410&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftslib%2Fdownload%2Ftslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha1-zy04vcNKE0vK8QkcQfZhni9nLQA=
 
+tslib@~2.3.0:
+  version "2.3.1"
+  resolved "https://registry.nlark.com/tslib/download/tslib-2.3.1.tgz?cache=0&sync_timestamp=1628722556410&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftslib%2Fdownload%2Ftslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
+  integrity sha1-6KM1rdXOrlGqJh0ypJAVjvBC7wE=
+
 tsscmp@1.0.6:
   version "1.0.6"
   resolved "https://registry.nlark.com/tsscmp/download/tsscmp-1.0.6.tgz#85b99583ac3589ec4bfef825b5000aa911d605eb"
@@ -5669,6 +5720,13 @@ unique-string@^2.0.0:
   integrity sha1-OcZFH4GvsnSd4rIz4/fF6IQ72J0=
   dependencies:
     crypto-random-string "^2.0.0"
+
+unixify@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/unixify/download/unixify-1.0.0.tgz#3a641c8c2ffbce4da683a5c70f03a462940c2090"
+  integrity sha1-OmQcjC/7zk2mg6XHDwOkYpQMIJA=
+  dependencies:
+    normalize-path "^2.1.1"
 
 unpipe@1.0.0:
   version "1.0.0"
@@ -5768,6 +5826,11 @@ validator@^13.1.17:
   version "13.6.0"
   resolved "https://registry.nlark.com/validator/download/validator-13.6.0.tgz?cache=0&sync_timestamp=1618914469901&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvalidator%2Fdownload%2Fvalidator-13.6.0.tgz#1e71899c14cdc7b2068463cb24c1cc16f6ec7059"
   integrity sha1-HnGJnBTNx7IGhGPLJMHMFvbscFk=
+
+value-or-promise@1.0.10:
+  version "1.0.10"
+  resolved "https://registry.nlark.com/value-or-promise/download/value-or-promise-1.0.10.tgz#5bf041f1e9a8e7043911875547636768a836e446"
+  integrity sha1-W/BB8emo5wQ5EYdVR2NnaKg25EY=
 
 vary@^1.1.2:
   version "1.1.2"
