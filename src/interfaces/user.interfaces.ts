@@ -6,6 +6,7 @@ export default interface User {
   email?: string;
   nickname: string;
   avatar: string;
+  sex: "female" | "male" | "unknown";
   password?: string;
   description?: string;
   followingsCount: number;

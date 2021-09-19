@@ -30,7 +30,7 @@ async function syncGroupsData() {
     })
     .select('*')
 
-  let groupPhotoPrefix = 'http://park.sanzhi.org.cn/uploadfile/'
+  let groupPhotoPrefix = 'http://park.sanzhi.org.cn/uploadfile/group/'
   await Promise.all(
     groups.map(async group => {
       var result = await monDB.collection('group').updateOne({
@@ -45,11 +45,43 @@ async function syncGroupsData() {
       },{
         upsert: true,
       })
-      console.log("更新了", result)
     })
   )
-
 }
+
+
+async function syncUsersData() {
+  // SELECT * FROM ts_user WHERE   // 有实际地点的，就是线下的分馆了
+  let users = await dbQuery('ts_user_info')
+    .where({
+      isrenzheng: 1
+    })
+    .select('*')
+
+  let userPhotoPrefix = 'http://park.sanzhi.org.cn/uploadfile/user/'
+  let sexs = {
+    "男": "male",
+    "女": "female",
+    "保密": "unknown",
+  }
+  await Promise.all(
+    users.map(async user => {
+      var result = await monDB.collection('user').updateOne({
+        _id: user.userid
+      }, {
+        $set: {
+          username: user.username,
+          avatar: userPhotoPrefix + user.face,
+          sex: sexs[user.sex],
+          description: user.about,
+        }
+      },{
+        upsert: true,
+      })
+    })
+  )
+}
+
 
 
 async function main() {
@@ -57,6 +89,7 @@ async function main() {
   monDB = mongoDB.db('wavelib_photo')
 
   await syncGroupsData()
+  await syncUsersData()
 
   return "执行完毕了"
 }
