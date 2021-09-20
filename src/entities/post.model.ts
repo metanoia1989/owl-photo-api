@@ -15,6 +15,9 @@ const schema = new Schema<Post>({
   collectionsCount: { type: Number, default: 0 },
   likes: [{ type: ObjectId, ref: 'User'} ],
   photos: [{ type: ObjectId, ref: 'Photo'} ],
-}, { timestamps: true })
+}, {
+  timestamps: true,
+  collection: 'post',
+})
 
 export default model<Post>('Post', schema)

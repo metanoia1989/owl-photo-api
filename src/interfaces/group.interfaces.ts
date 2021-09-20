@@ -1,4 +1,5 @@
 export default interface Group {
+  _id: number,
   groupname: string;
   avatar: string;
   description?: string;

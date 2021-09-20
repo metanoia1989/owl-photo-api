@@ -20,6 +20,7 @@ export interface Config {
     dbsslconn: boolean
     jwt: JwtSecrets
     redis: RedisConnDetails
+    databaseDebug: boolean
     databaseUrl: string
     dbEntitiesPath: string[]
     GRAPHQL_PATH: string

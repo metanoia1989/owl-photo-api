@@ -6,6 +6,7 @@ import { Schema, model } from 'mongoose'
 import Group from '../interfaces/group.interfaces'
 
 const schema = new Schema<Group>({
+  _id: { type: Number },
   groupname: { type: String, required: true },
   avatar: { type: String, required: true },
   description: Number,

@@ -1,6 +1,6 @@
 import { config } from '../config'
 import { createBlackList, BlackList, STORE_TYPE } from 'jwt-blacklist'
-import { Connection, createConnection } from 'mongoose'
+import {  connect, set } from 'mongoose'
 
 /**
  * Connects to a Mongoose connected database
@@ -8,8 +8,11 @@ import { Connection, createConnection } from 'mongoose'
  * @param  {string} url the database connection url
  * @returns {Promise<Connection>} the database connection object
  */
-export async function setupConnection(url: string): Promise<Connection> {
-  return createConnection(url)
+export async function setupConnection(url: string): Promise<void> {
+  await connect(url)
+  if (config.databaseDebug) {
+    await set('debug', { shell: true })
+  }
 }
 
 /**

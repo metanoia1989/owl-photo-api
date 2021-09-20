@@ -5,6 +5,7 @@ import { Schema, model } from 'mongoose'
 import User from '../interfaces/user.interfaces'
 
 const schema = new Schema<User>({
+  _id: { type: Number },
   username: { type: String, unique: true },
   email: { type: String, unique: true },
   nickname: { type: String, required: true },
@@ -15,6 +16,9 @@ const schema = new Schema<User>({
   followingsCount: { type: Number, default: 0 },
   followersCount: { type: Number, default: 0 },
   collectionsCount: { type: Number, default: 0 },
-}, { timestamps: true })
+}, {
+  timestamps: true,
+  collection: 'user',
+})
 
 export default model<User>('User', schema)

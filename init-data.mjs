@@ -70,7 +70,7 @@ async function syncUsersData() {
         _id: user.userid
       }, {
         $set: {
-          username: user.username,
+          nickname: user.username,
           avatar: userPhotoPrefix + user.face,
           sex: sexs[user.sex],
           description: user.about,

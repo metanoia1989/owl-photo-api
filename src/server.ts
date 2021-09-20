@@ -49,7 +49,11 @@ export const server = function (): Server {
     // These routes are protected by the JWT middleware
     // app.use(protectedRouter.routes()).use(protectedRouter.allowedMethods())
 
-    console.log(`Server running on port ${config.port}`)
+    console.log(`
+      RestFul Server running at http://localhost:${config.port}
+      GraphQL Server running at http://localhost:${config.port}${config.GRAPHQL_PATH}
+      GraphQL subscription running at http://localhost:${config.port}${config.SUBSCRIPTIONS_PATH}
+    `)
 
     return app.listen(config.port)
 }

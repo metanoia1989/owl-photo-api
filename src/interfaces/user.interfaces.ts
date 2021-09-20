@@ -1,7 +1,5 @@
-import { Document, PopulatedDoc } from 'mongoose';
-import Post from './post.interfaces';
-
 export default interface User {
+  _id: number,
   username: string;
   email?: string;
   nickname: string;

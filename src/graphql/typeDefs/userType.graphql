@@ -10,3 +10,8 @@ type User {
   createdAt: Date
   updatedAt: Date
 }
+
+type Query {
+  user(id: ID!): User
+}
+

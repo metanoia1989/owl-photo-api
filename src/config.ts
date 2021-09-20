@@ -40,6 +40,7 @@ const config: Config = {
     },
     redis,
     databaseUrl,
+    databaseDebug: Boolean(process.env.DATABASE_DEBUG),
     dbEntitiesPath: [...(isDevelopmentMode || isTestMode ? ['src/entities/**/*.ts'] : ['dist/entities/**/*.js'])],
     GRAPHQL_PATH,
     SUBSCRIPTIONS_PATH,
