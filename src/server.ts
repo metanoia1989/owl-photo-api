@@ -6,6 +6,7 @@ import cors from '@koa/cors'
 import winston from 'winston'
 import 'reflect-metadata'
 import { Server } from 'http'
+import { graphqlUploadKoa } from 'graphql-upload'
 import { loggerMiddleware } from './middleware/logger'
 import { config } from './config'
 import { rateLimiter } from './middleware/rate-limiter'
@@ -35,6 +36,10 @@ export const server = function (): Server {
     // Enable an in-memory (or redis) rate limiter
     app.use(rateLimiter)
 
+    app.use(graphqlUploadKoa({
+      maxFileSize: 3 * 1000 * 1000, // 3M
+      maxFiles: 10,
+    }))
     // these routes are NOT protected by the JWT middleware
     // app.use(unprotectedRouter.routes()).use(unprotectedRouter.allowedMethods())
     app.use(staticRouter.routes()).use(staticRouter.allowedMethods())

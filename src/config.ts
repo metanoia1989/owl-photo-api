@@ -1,5 +1,6 @@
 import dotenv from 'dotenv'
 import { Config } from './interfaces/config.interfaces'
+import path from 'path'
 
 dotenv.config({ path: '.env' })
 
@@ -26,6 +27,7 @@ if(process.env.REDIS_URL) {
 // graphQL default
 const GRAPHQL_PATH = process.env.GRAPHQL_PATH || '/graphql'
 const SUBSCRIPTIONS_PATH = process.env.SUBSCRIPTIONS_PATH || '/subscriptions'
+const UPLOAD_PATH =  process.env.UPLOAD_PATH || 'public/uploads/'
 
 const config: Config = {
     nodeEnv: process.env.NODE_ENV || 'development',
@@ -44,6 +46,7 @@ const config: Config = {
     dbEntitiesPath: [...(isDevelopmentMode || isTestMode ? ['src/entities/**/*.ts'] : ['dist/entities/**/*.js'])],
     GRAPHQL_PATH,
     SUBSCRIPTIONS_PATH,
+    UPLOAD_PATH: path.resolve(UPLOAD_PATH)
 }
 
 export { config }

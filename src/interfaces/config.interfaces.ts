@@ -25,4 +25,5 @@ export interface Config {
     dbEntitiesPath: string[]
     GRAPHQL_PATH: string
     SUBSCRIPTIONS_PATH: string
+    UPLOAD_PATH: string
 }

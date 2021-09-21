@@ -26,3 +26,5 @@ dist/**/*
 .vscode
 coverage
 node_modules
+
+# 上传文件
