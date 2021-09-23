@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 import { BaseContext } from 'koa'
 import { config } from '../config'
-import { User } from '../entities/user'
+import  { User }from '../interfaces/user.interfaces'
 import { DecodedJwtToken } from '../interfaces/auth.interfaces'
 import {blacklistConnection } from '../providers/connections'
 import { BlackList } from 'jwt-blacklist'
@@ -13,13 +13,13 @@ import { logger } from '../libraries/logger'
  *
  * @param {{
  *  id: string
- *  email: string
+ *  username: string
  *  expiresIn: number
  * }} param0 - an object with params to sign the jwt token
  * @returns {string} the signed(encoded) jwt access token
  */
-export const signAccessToken = function ({ id, email, expiresIn }: DecodedJwtToken): string {
-    return jwt.sign({ id, email, expiresIn }, config.jwt.accessTokenSecret, {
+export const signAccessToken = function ({ id, username, expiresIn }: DecodedJwtToken): string {
+    return jwt.sign({ id, username, expiresIn }, config.jwt.accessTokenSecret, {
         expiresIn: config.jwt.accessTokenLife,
     })
 }
@@ -27,11 +27,11 @@ export const signAccessToken = function ({ id, email, expiresIn }: DecodedJwtTok
 /**
  * Signs a new jwt refresh token
  *
- * @param  {string} email email of the user
+ * @param  {string} username username of the user
  * @returns {string} the signed(encoded) jwt refresh token
  */
-export const signRefreshToken = function (email: string): string {
-    return jwt.sign({ email }, config.jwt.refreshTokenSecret, {
+export const signRefreshToken = function (username: string): string {
+    return jwt.sign({ username }, config.jwt.refreshTokenSecret, {
         expiresIn: config.jwt.refreshTokenLife,
     })
 }
@@ -48,7 +48,7 @@ export const verifyToken = function (context: BaseContext, token: string, type: 
     const secret = type === 'access' ? config.jwt.accessTokenSecret : config.jwt.refreshTokenSecret
     const result = jwt.verify(token, secret, { ignoreExpiration: true })
 
-    if (typeof result === 'string' || (result.constructor === Object && !result.hasOwnProperty('email')))
+    if (typeof result === 'string' || (result.constructor === Object && !result.hasOwnProperty('username')))
         context.throw(new errors.InvalidToken())
 
     return <DecodedJwtToken>result
@@ -56,7 +56,7 @@ export const verifyToken = function (context: BaseContext, token: string, type: 
 
 /**
  *  Adds a token to the redis token blacklist
- * 
+ *
  * @param  {BaseContext} context Koa Context object
  * @returns {Promise<void>} a void promise
  */
@@ -69,17 +69,17 @@ export const revokeToken = async function(context: BaseContext): Promise<void> {
         await tokenBlacklist.add(tokenToRevoke)
     } catch(error) {
         logger.error('revokeToken', { error })
-    }    
-}   
+    }
+}
 
 /**
- *  Verifies the email contained in a JWT token
+ *  Verifies the username contained in a JWT token
  *
  * @param  {BaseContext} context Koa Context object for error handling
  * @param  {User} user the user object
  */
-export const verifyTokenEmail = function (context: BaseContext, user: User): void {
-    if (context.state?.user?.email !== user.email) context.throw(new errors.UserPermissionDenied())
+export const verifyTokenUsername = function (context: BaseContext, user: User): void {
+    if (context.state?.user?.username !== user.username) context.throw(new errors.UserPermissionDenied())
 }
 
 /**

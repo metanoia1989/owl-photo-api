@@ -14,6 +14,24 @@
 技术栈：Koa + MongoDB + GraphQL + Vue + TypeScript     
 应用模板：https://github.com/emmanuelnk/restful-typescript-koa    
 
+应用目录结构
+==========
+
+/docs 项目文档    
+/public 静态资源    
+/src 主要源码   
+/src/controllers 控制器目录   
+/src/entities 模型目录   
+/src/graphql graphql schema目录   
+/src/interfaces 主要实体接口目录    
+/src/libraries 工具类目录   
+/src/middleware 中间件目录    
+/src/providers 服务提供者封装 
+/src/routes 路由目录    
+/scc/services 业务逻辑目录，常用的业务逻辑处理  
+/init-data.mjs 初始化微澜用户和群组数据的脚本   
+/mongo-init.js 初始化mongodb数据库角色脚本    
+
 LICENSE
 =======
 

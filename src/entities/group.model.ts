@@ -3,7 +3,7 @@
  */
 
 import { Schema, model } from 'mongoose'
-import Group from '../interfaces/group.interfaces'
+import { Group } from '../interfaces/group.interfaces'
 
 const schema = new Schema<Group>({
   _id: { type: Number },
@@ -13,4 +13,4 @@ const schema = new Schema<Group>({
   donateUrl: String,
 }, { timestamps: true })
 
-export default model<Group>('Group', schema)
+export const GroupModel = model<Group>('Group', schema)

@@ -11,7 +11,15 @@ type User {
   updatedAt: Date
 }
 
+type Auth {
+  token: String!
+}
+
 type Query {
   user(id: ID!): User
 }
 
+type Mutation {
+  login(username: String!, password: String!): Auth
+  signup(username: String!, password: String!): User
+}

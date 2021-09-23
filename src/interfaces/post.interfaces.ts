@@ -1,6 +1,6 @@
 import { Document, PopulatedDoc } from 'mongoose';
-import Group from './group.interfaces';
-import User from './user.interfaces';
+import { Group } from './group.interfaces';
+import { User } from './user.interfaces';
 import Photo from './photo.interfaces';
 
 export default interface Post {

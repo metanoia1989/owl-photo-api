@@ -1,8 +1,8 @@
 /**
  * 用户信息表
  */
-import { Schema, model } from 'mongoose'
-import User from '../interfaces/user.interfaces'
+import { Schema, model  } from 'mongoose'
+import { User } from '../interfaces/user.interfaces'
 
 const schema = new Schema<User>({
   _id: { type: Number },
@@ -21,4 +21,4 @@ const schema = new Schema<User>({
   collection: 'user',
 })
 
-export default model<User>('User', schema)
+export const UserModel = model<User>('User', schema)

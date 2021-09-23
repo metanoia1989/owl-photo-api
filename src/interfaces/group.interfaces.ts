@@ -1,5 +1,5 @@
-export default interface Group {
-  _id: number,
+export interface Group {
+  _id: number;
   groupname: string;
   avatar: string;
   description?: string;
@@ -7,3 +7,4 @@ export default interface Group {
   createdAt: Date;
   updatedAt: Date;
 }
+

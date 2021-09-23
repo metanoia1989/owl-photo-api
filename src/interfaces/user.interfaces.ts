@@ -1,5 +1,5 @@
-export default interface User {
-  _id: number,
+export interface User {
+  _id: number;
   username: string;
   email?: string;
   nickname: string;
@@ -13,3 +13,4 @@ export default interface User {
   createdAt: Date;
   updatedAt: Date;
 }
+
