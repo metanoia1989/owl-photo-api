@@ -19,7 +19,6 @@ const postSchema = new Schema<Post>({
   timestamps: true,
   collection: 'post',
 })
-
 export const PostModel = model<Post>('Post', postSchema)
 
 
@@ -35,5 +34,4 @@ const commentSchema = new Schema<Comment>({
   timestamps: { createdAt: true, updatedAt: false },
   collection: 'comment',
 })
-
 export const CommentModel = model<Comment>('Comment', commentSchema)

@@ -22,14 +22,13 @@ type Comment {
   createdAt: Date
 }
 
+# 无需操作状态字段，操作失败自然返回错误
 type LikeStatus {
   likeStatus: Boolean
-  operateStatus: Boolean
 }
 
 type CollectionStatus {
   collectionStatus: Boolean
-  operateStatus: Boolean
 }
 
 Query {
