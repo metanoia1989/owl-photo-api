@@ -2,7 +2,7 @@
  * 系统公告表，面向全体用户的站内公告
  */
 import { Schema, model } from 'mongoose'
-import Announcement from '../interfaces/announcement.interfaces'
+import { Announcement } from '../interfaces/announcement.interfaces'
 
 const schema = new Schema<Announcement>({
   title: { type: String, required: true },

@@ -1,8 +1,8 @@
 import { Document, PopulatedDoc } from 'mongoose';
-import Group from './group.interfaces';
-import User from './user.interfaces';
+import { Group } from './group.interfaces';
+import { User } from './user.interfaces';
 
-export default interface Photo {
+export interface Photo {
   userid: PopulatedDoc<User & Document>;
   groupid?: PopulatedDoc<Group & Document>;
   filename: string;

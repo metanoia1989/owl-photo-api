@@ -1,0 +1,17 @@
+type Post {
+  user: User
+  group: Group
+  caption: String
+  cover: String
+  location: String
+  tags: [String]
+  photos: [Photo!]!
+  likes: [User]
+  collectionsCount: Number
+  createdAt: Date
+  updatedAt: Date
+}
+
+Query {
+
+}

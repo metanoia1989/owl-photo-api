@@ -4,7 +4,7 @@
 import { ObjectId } from 'bson'
 import { Schema, model } from 'mongoose'
 
-import Follower from '../interfaces/follower.interfaces'
+import { Follower } from '../interfaces/follower.interfaces'
 
 const schema = new Schema<Follower>({
   userid: { type: ObjectId, ref: 'User', required: true },

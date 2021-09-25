@@ -1,5 +1,5 @@
 
-export default interface Announcement {
+export interface Announcement {
   title: string;
   content: string;
   type: "default"; // 公告类型

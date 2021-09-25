@@ -4,7 +4,7 @@
 
 import { ObjectId } from 'bson'
 import { Schema, model } from 'mongoose'
-import Photo from '../interfaces/photo.interfaces'
+import { Photo } from '../interfaces/photo.interfaces'
 
 const schema = new Schema<Photo>({
   userid: { type: ObjectId, ref: 'User', required: true },

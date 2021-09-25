@@ -4,7 +4,7 @@
 import { ObjectId } from 'bson'
 import { Schema, model } from 'mongoose'
 
-import CollectionPost from '../interfaces/collection_post.interfaces'
+import { CollectionPost } from '../interfaces/collection_post.interfaces'
 
 const schema = new Schema<CollectionPost>({
   userid: { type: ObjectId, ref: 'User', required: true },

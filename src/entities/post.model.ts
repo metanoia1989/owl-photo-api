@@ -3,7 +3,7 @@
  */
 import { ObjectId } from 'bson'
 import { Schema, model } from 'mongoose'
-import Post from '../interfaces/post.interfaces'
+import { Post } from '../interfaces/post.interfaces'
 
 const schema = new Schema<Post>({
   userid: { type: ObjectId, ref: 'User', required: true },

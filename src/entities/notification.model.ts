@@ -4,7 +4,7 @@
 
 import { ObjectId } from 'bson'
 import { Schema, model } from 'mongoose'
-import Notification, { NotificationTypeEnum } from '../interfaces/notification.interfaces'
+import { Notification, NotificationTypeEnum } from '../interfaces/notification.interfaces'
 
 const schema = new Schema<Notification>({
   userid: { type: ObjectId, ref: 'User' },
