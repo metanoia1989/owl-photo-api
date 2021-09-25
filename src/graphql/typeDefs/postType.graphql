@@ -12,6 +12,42 @@ type Post {
   updatedAt: Date
 }
 
-Query {
+type Comment {
+  user: User
+  post: Post
+  content: string
+  reply: Comment
+  likes: [User]
+  dislikes: [User]
+  createdAt: Date
+}
 
+type LikeStatus {
+  likeStatus: Boolean
+  operateStatus: Boolean
+}
+
+type CollectionStatus {
+  collectionStatus: Boolean
+  operateStatus: Boolean
+}
+
+Query {
+  getPost(postId: ID): Post
+  getPosts(first: Int = 20, offset: Int = 0): [Post]
+
+  plazePosts(first: Int = 20, offset: Int = 0): [Post]
+  userPosts(userId: ID, first: Int = 20, offset: Int = 0): [Post]
+
+  getComments(postId: ID, first: Int = 20, offset: Int = 0): [Comment]
+}
+
+Mutation {
+  publishPost()
+  deletePost(postId: ID): Boolean
+  likePost(postId: ID): LikeStatus
+  collectionPost(postId: ID): CollectionStatus
+
+  createComment(postId: ID, comment: String): Comment
+  deleteComment(commentId: ID): Boolean
 }

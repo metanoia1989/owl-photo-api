@@ -4,11 +4,12 @@
 
 import { ObjectId } from 'bson'
 import { Schema, model } from 'mongoose'
-import { Photo } from '../interfaces/photo.interfaces'
+import { Photo, FileDriverEnums } from '../interfaces/photo.interfaces'
 
 const schema = new Schema<Photo>({
   userid: { type: ObjectId, ref: 'User', required: true },
   groupid: { type: ObjectId, ref: 'Group' },
+  driver: { type: String, default: 'local', enum: FileDriverEnums },
   filename: { type: String, required: true },
   extenstion: { type: String, required: true },
   md5: { type: String, required: true, unique: true },

@@ -16,3 +16,13 @@ export interface Post {
   createdAt: Date;
   updatedAt: Date;
 }
+
+export interface Comment {
+  userid: PopulatedDoc<User & Document>;
+  postid: PopulatedDoc<Post & Document>;
+  content: string;
+  replyid?: PopulatedDoc<Comment & Document>;
+  likes?: PopulatedDoc<User & Document>[];
+  dislikes?: PopulatedDoc<User & Document>[];
+  createdAt: Date;
+}

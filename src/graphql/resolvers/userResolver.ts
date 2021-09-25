@@ -4,8 +4,11 @@ import { signAccessToken } from "@src/services/auth"
 
 export default {
   Query: {
-    async user(_root, { id  }: { id: string }, _context, _info ) {
+    async findUser(_root, { id  }: { id: string }, _context, _info ) {
       return await UserModel.findById(id).exec()
+    },
+    async me(_root, _args, context, _info ) {
+      return context.user
     },
   },
   Mutation: {

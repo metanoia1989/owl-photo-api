@@ -3,9 +3,9 @@
  */
 import { ObjectId } from 'bson'
 import { Schema, model } from 'mongoose'
-import { Post } from '../interfaces/post.interfaces'
+import { Post, Comment } from '../interfaces/post.interfaces'
 
-const schema = new Schema<Post>({
+const postSchema = new Schema<Post>({
   userid: { type: ObjectId, ref: 'User', required: true },
   groupid: { type: ObjectId, ref: 'Group' },
   caption: { type: String, required: true },
@@ -20,4 +20,20 @@ const schema = new Schema<Post>({
   collection: 'post',
 })
 
-export default model<Post>('Post', schema)
+export const PostModel = model<Post>('Post', postSchema)
+
+
+
+const commentSchema = new Schema<Comment>({
+  userid: { type: ObjectId, ref: 'User', required: true },
+  postid: { type: ObjectId, ref: 'Post', required: true },
+  content: String,
+  replyid: { type: ObjectId, ref: 'Comment' },
+  likes: [{ type: ObjectId, ref: 'User'} ],
+  dislikes: [{ type: ObjectId, ref: 'User'} ],
+}, {
+  timestamps: { createdAt: true, updatedAt: false },
+  collection: 'comment',
+})
+
+export const CommentModel = model<Comment>('Comment', commentSchema)

@@ -16,10 +16,14 @@ type Auth {
 }
 
 type Query {
-  user(id: ID!): User
+  findUser(id: ID!): User
+  me(): User
 }
 
 type Mutation {
   login(username: String!, password: String!): Auth
   signup(username: String!, password: String!): User
+
+  # followUser()
+  # unfollowUser()
 }
