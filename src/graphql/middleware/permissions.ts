@@ -1,3 +1,4 @@
+import { UserNotLoggedIn } from '@src/libraries/errors'
 import { shield, rule, allow  } from 'graphql-shield'
 
 const isAuthenticated = rule({ cache: 'contextual' })(async (_parent, _args, ctx, _info) => {
@@ -27,6 +28,7 @@ const permissions = shield({
   }
 }, {
   fallbackRule: isAuthenticated,
+  fallbackError: new UserNotLoggedIn()
 })
 
 export { permissions }

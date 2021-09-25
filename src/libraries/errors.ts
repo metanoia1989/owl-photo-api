@@ -8,6 +8,7 @@ export class Unauthorized extends Error {
     status = 401
     name = 'Unauthorized'
     expose = false
+    extensions = { code: this.name }
 }
 
 export class Forbidden extends Error {
@@ -141,6 +142,8 @@ export class RevokedToken extends Forbidden {
 
 export class UserNotLoggedIn extends Unauthorized {
     name = 'UserNotLoggedIn'
+    extensions = { code: this.name }
+
     constructor() {
         super('User Not Logged In')
     }
