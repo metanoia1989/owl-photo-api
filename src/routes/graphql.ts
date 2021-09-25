@@ -1,5 +1,7 @@
 import Router from "koa-router";
 import graphqlHttp from 'koa-graphql';
+import { applyMiddleware } from "graphql-middleware";
+
 import { config } from "../config";
 import { graphqlSchema } from "../graphql";
 import { verifyToken } from "@src/services/auth";
@@ -7,8 +9,18 @@ import { verifyToken } from "@src/services/auth";
 import { BaseContext } from 'koa'
 import { UserModel } from "@src/entities/user.model";
 import { User } from "@src/interfaces/user.interfaces";
+import { logInput } from "@src/middleware/logInput";
+import { logResult } from "@src/middleware/logResult";
+import { permissions } from "@src/middleware/permissions";
 
 const graphqlRouter = new Router()
+
+const schema = applyMiddleware(
+  graphqlSchema,
+  logInput,
+  permissions,
+  logResult,
+)
 
 const option: graphqlHttp.Options = async (request, _response, ctx)  => {
   let user: User | null = null;
@@ -19,7 +31,7 @@ const option: graphqlHttp.Options = async (request, _response, ctx)  => {
   }
 
   return {
-    schema: graphqlSchema,
+    schema: schema,
     graphiql: true,
     pretty: true,
     rootValue: {
