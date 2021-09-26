@@ -99,6 +99,7 @@
     "ajv-formats": "^0.4.0",
     "bcryptjs": "^2.4.3",
     "class-validator": "^0.11.1",
+    "cos-nodejs-sdk-v5": "^2.10.3",
     "dotenv": "^8.2.0",
     "find-root": "^1.1.0",
     "graphql-middleware": "^6.1.6",

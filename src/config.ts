@@ -29,6 +29,15 @@ const GRAPHQL_PATH = process.env.GRAPHQL_PATH || '/graphql'
 const SUBSCRIPTIONS_PATH = process.env.SUBSCRIPTIONS_PATH || '/subscriptions'
 const UPLOAD_PATH =  process.env.UPLOAD_PATH || 'public/uploads/'
 
+// oss config
+const ossConfig = {
+  SecretId: process.env.OSS_SecretId || "",
+  SecretKey: process.env.OSS_SecretKey || "",
+  Bucket: process.env.OSS_Bucket || "",
+  Region: process.env.OSS_Region || "",
+  Uin: process.env.OSS_Uin || "",
+}
+
 const config: Config = {
     nodeEnv: process.env.NODE_ENV || 'development',
     port: +(process.env.PORT || 3000),
@@ -46,7 +55,9 @@ const config: Config = {
     dbEntitiesPath: [...(isDevelopmentMode || isTestMode ? ['src/entities/**/*.ts'] : ['dist/entities/**/*.js'])],
     GRAPHQL_PATH,
     SUBSCRIPTIONS_PATH,
-    UPLOAD_PATH: path.resolve(UPLOAD_PATH)
+    UPLOAD_PATH: path.resolve(UPLOAD_PATH),
+
+    ossConfig,
 }
 
 export { config }

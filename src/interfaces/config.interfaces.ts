@@ -13,6 +13,14 @@ interface RedisConnDetails {
     blackListEnabled?: string
 }
 
+interface OSSConfig {
+  SecretId: string
+  SecretKey: string
+  Bucket: string
+  Region: string
+  Uin: string
+}
+
 export interface Config {
     nodeEnv: string
     port: number
@@ -26,4 +34,6 @@ export interface Config {
     GRAPHQL_PATH: string
     SUBSCRIPTIONS_PATH: string
     UPLOAD_PATH: string
+
+    ossConfig: OSSConfig
 }
