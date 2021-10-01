@@ -14,6 +14,8 @@
 技术栈：Koa + MongoDB + GraphQL + Vue + TypeScript     
 应用模板：https://github.com/emmanuelnk/restful-typescript-koa    
 
+感觉自己开发效率好低，心伤，这么多天没写多少东西。。。。
+
 应用目录结构
 ==========
 
