@@ -1,0 +1,9 @@
+type Group {
+  _id: Int
+  groupname: String
+  avatar: String
+  description: String
+  donateUrl: String
+  createdAt: Date
+  updatedAt: Date
+}

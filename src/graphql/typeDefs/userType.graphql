@@ -17,7 +17,7 @@ type Auth {
 
 type Query {
   findUser(id: ID!): User
-  me(): User
+  me: User
 }
 
 type Mutation {

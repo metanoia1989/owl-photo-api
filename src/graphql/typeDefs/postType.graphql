@@ -1,3 +1,21 @@
+type Photo {
+  user: User
+  driver: String
+  filename: String
+  extenstion: String
+  md5: String
+  sha1: String
+  thumb_url: String
+  preview_url: String
+  origin_url: String
+  width: Int
+  height: Int
+  preview_size: Int
+  origin_size: Int
+  color: String
+  createdAt: Date
+}
+
 type Post {
   user: User
   group: Group
@@ -7,7 +25,7 @@ type Post {
   tags: [String]
   photos: [Photo!]!
   likes: [User]
-  collectionsCount: Number
+  collectionsCount: Int
   createdAt: Date
   updatedAt: Date
 }
@@ -15,7 +33,7 @@ type Post {
 type Comment {
   user: User
   post: Post
-  content: string
+  content: String
   reply: Comment
   likes: [User]
   dislikes: [User]
@@ -31,7 +49,7 @@ type CollectionStatus {
   collectionStatus: Boolean
 }
 
-Query {
+type Query {
   getPost(postId: ID): Post
   getPosts(first: Int = 20, offset: Int = 0): [Post]
 
@@ -41,8 +59,8 @@ Query {
   getComments(postId: ID, first: Int = 20, offset: Int = 0): [Comment]
 }
 
-Mutation {
-  publishPost()
+type Mutation {
+  # publishPost(): Post
   deletePost(postId: ID): Boolean
   likePost(postId: ID): LikeStatus
   collectionPost(postId: ID): CollectionStatus
