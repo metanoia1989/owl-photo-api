@@ -1,7 +1,7 @@
 {
-  "name": "wavelib-photo-api",
+  "name": "owl-photo-api",
   "version": "1.0.0",
-  "description": "微澜云相册，一款上传、浏览、分享图片的应用",
+  "description": "猫头鹰相册，自由意志之人的精神空间",
   "main": "dist/server.js",
   "scripts": {
     "dev": "nodemon --watch src -e ts,tsx,graphql --exec ts-node -r tsconfig-paths/register src/server.ts",
@@ -22,7 +22,7 @@
   },
   "author": "Adam Smith",
   "license": "GPLv3",
-  "homepage": "https://github.com/metanoia1989/wavelib-photo-api",
+  "homepage": "https://github.com/metanoia1989/owl-photo-api",
   "keywords": [
     "typescript",
     "koa",
