@@ -1,8 +1,10 @@
-<div style="text-align: center;">
-  <h1>猫头鹰相册</h1>
-  <img src="https://cos.ap-guangzhou.myqcloud.com/images-1251976096/owl-photo/logo/banner-logo.png" alt="猫头鹰相册Logo">
-</div>
+<p align="center">
+  <a href="http://owl.liushenhai.com">
+    <img width="256" height="256" src="https://cos.ap-guangzhou.myqcloud.com/images-1251976096/owl-photo/logo/logo.png" alt="猫头鹰相册Logo">
+  </a>
+</p>
 
+# 猫头鹰相册
 
 
 技术栈：Koa + MongoDB + GraphQL + Vue + TypeScript     
