@@ -19,3 +19,23 @@
 在网络的世界，有独立的天地。打造一个网络的虚拟世界，公共的社区一点都不温馨，没有自由和交流。 
 
 给人以自由和尊严。  
+
+
+被性能优化限制住了手脚，反而连业务逻辑都不敢写了，随手来弄就可以了，简单粗暴快速就行。
+数据量上去了，实在是慢了，再来考虑优化的事情，不然项目根本没办法推动了。  
+
+而且 GraphQL 不适合，我不熟悉，文件上传也麻烦，直接用RESTapi，先用 MySQL 顶着。 
+
+```sql
+CREATE TABLE `owl_posts` (
+	`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,  
+  `uid` INT(10) UNSIGNED NULL COMMENT '用户ID',
+  `content` TEXT NULL COMMENT '内容',
+  `imgs` VARCHAR(1000) NULL COMMENT '图片链接',
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+)
+COMMENT='微博表'
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB;
+```

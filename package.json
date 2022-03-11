@@ -17,7 +17,7 @@
     "generate-index-page": "cat README.md | npx marked -o public/readme.html"
   },
   "engines": {
-    "node": "14.x.x",
+    "node": "15.x.x",
     "npm": "6.x.x"
   },
   "author": "Adam Smith",
@@ -81,7 +81,7 @@
     "lint-staged": "^10.4.2",
     "mocha": "^8.2.0",
     "mysql": "^2.18.1",
-    "nodemon": "^2.0.2",
+    "nodemon": "^2.0.15",
     "nyc": "^15.1.0",
     "prettier": "^2.1.2",
     "supertest": "^5.0.0",
@@ -108,10 +108,12 @@
     "html-minifier": "^4.0.0",
     "jwt-blacklist": "^0.1.2",
     "koa": "^2.11.0",
+    "koa-body": "^4.2.0",
     "koa-bodyparser": "^4.3.0",
     "koa-graphql": "^0.9.0",
     "koa-helmet": "^5.2.0",
     "koa-jwt": "^3.6.0",
+    "koa-logger": "^3.2.1",
     "koa-ratelimit": "^4.2.1",
     "koa-send": "^5.0.1",
     "koa-swagger-decorator": "^1.5.16",
@@ -119,8 +121,10 @@
     "marked": "^1.2.2",
     "mongodb": "^4.1.2",
     "mongoose": "^6.0.5",
+    "mysql2": "^2.3.3",
     "phonetic": "^0.1.1",
     "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.17.0",
     "shelljs": "^0.8.4",
     "shortid": "^2.2.16",
     "winston": "^3.2.1"
